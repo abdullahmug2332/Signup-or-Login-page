@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup-And-Login-Page</title>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="signup-container">
+            <h1 id="title">Sign Up</h1> 
+            <div id="inputname">
+                <i class="fa fa-user-circle-o " id="icon" style="font-size:30px;"></i>
+                <input type="text" placeholder="NAME" name="name" class="name" id="name" required>
+            </div>
+            <div class="inputemail">
+                <i class="fa fa-envelope" style="font-size:25px"></i>
+                <input type="email" placeholder="EMAIL" name="email" class="email" id="email" required >
+            </div>
+            <div class="inputpassword">
+                <i class='fa fa-lock' style='font-size:30px'></i>
+                <input type="password" placeholder="PASSWORD" name="password" class="password" id="password" required>
+            </div>
+            <div id="errormsg"></div>
+            <div class="btns">
+                <button type="submit" id="signup" onclick="signin()" class="btn1">Sign In</button>
+                <button type="submit" id="signin" onclick="signup()" class="btn2">Sign Up</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        var title = document.getElementById('title');
+        var namefeild = document.getElementById('name');
+        var sign_in_btn = document.getElementById('signin');
+        var sign_up_btn = document.getElementById('signup');
+        var icon = document.getElementById('icon');
+        var errormsg = document.getElementById('errormsg');
+
+        function signin() {
+            title.innerHTML = "Sign In";
+            namefeild.style.display = 'none';
+            icon.style.display = 'none';
+        };
+        function signup() {
+            title.innerHTML = "Sign Up";
+            namefeild.style.display = 'block';
+            icon.style.display = 'block';
+            if (namefeild.value.length > 18) {
+                errormsg.textContent =  "Name does not exceed 18 characters";
+                return false;
+            } else {
+                errormsg.textContent = "";
+            }
+
+        };
+    </script>
+</body>
+
+</html>
